@@ -1,0 +1,2 @@
+# AI_Thailand_Hackathon_2025
+AI_Thailand_Hackathon_2025
