@@ -1,9 +1,13 @@
-from flask import Flask
+from flask import Flask, jsonify
+import logging
+
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
 
 @app.route('/')
 def hello():
-    return "Hello from API1"
+    logging.info("API2: Received request from API1.")
+    return jsonify({"message": "Hello from API2"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9999)
