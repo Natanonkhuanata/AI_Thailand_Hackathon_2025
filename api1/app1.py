@@ -12,8 +12,8 @@ def hello():
         response = requests.get('http://api2:9999/')
         logging.info(f"API1: Response from API2: {response.text}")
         return jsonify({
-            "api1": "Hello from API1",
-            "api2_response": response.json()
+            "Api1": "Hello this is API1",
+            "Api2_response": response.json()
         })
     except Exception as e:
         logging.error(f"API1: Error calling API2: {e}")
