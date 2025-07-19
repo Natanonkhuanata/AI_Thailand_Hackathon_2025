@@ -31,14 +31,14 @@
    -   ทั้งสองรันใน Docker และเชื่อมต่อกันด้วย `docker-compose`
    
    ## โครงสร้างโปรเจกต์ 	 	
-   project-root/ 	
-   ├── docker-compose.yml
-   ├── api1/
-   │   ├── Dockerfile
-   │   └── app1.py
-   └── api2/
-       ├── Dockerfile
-       └── app.py
+	     project-root/ 	
+	      ├── docker-compose.yml
+	      ├── api1/
+	      │   ├── Dockerfile
+	      │   └── app1.py
+	      └── api2/
+	          ├── Dockerfile
+	          └── app.py
      
    
    ## ภาษาในการพัฒนา
