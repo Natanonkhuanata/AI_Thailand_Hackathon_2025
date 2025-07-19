@@ -20,7 +20,7 @@
 	 - Person Detection   ระบบระบุตำแหน่งบุคคลในภาพ (Person Detection)
 	 - Violence Classification  ระบบตรวจจับความรุนแรงจากภาพถ่าย (Violence Classification)
 
-## Quizz
+## Quiz
 
  - สร้าง API 2 ตัว:
    
