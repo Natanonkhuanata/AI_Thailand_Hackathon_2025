@@ -32,13 +32,13 @@
    
    ## โครงสร้างโปรเจกต์ 	 	
    project-root/ 	
-  ├── docker-compose.yml
-  ├── api1/
-  │   ├── Dockerfile
-  │   └── app1.py
-  └── api2/
-      ├── Dockerfile
-      └── app.py
+   ├── docker-compose.yml
+   ├── api1/
+   │   ├── Dockerfile
+   │   └── app1.py
+   └── api2/
+       ├── Dockerfile
+       └── app.py
      
    
    ## ภาษาในการพัฒนา
