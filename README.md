@@ -20,67 +20,63 @@
 	 - Person Detection   ระบบระบุตำแหน่งบุคคลในภาพ (Person Detection)
 	 - Violence Classification  ระบบตรวจจับความรุนแรงจากภาพถ่าย (Violence Classification)
 
-## เป้าหมาย
+## Quizz
 
-สร้าง API 2 ตัว:
-
--   `API1`: รับ request จากผู้ใช้ แล้วเรียก `API2` ผ่าน HTTP
+ - สร้าง API 2 ตัว:
+   
+   -   `API1`: รับ request จากผู้ใช้ แล้วเรียก `API2` ผ่าน HTTP
+       
+   -   `API2`: ตอบกลับข้อความเรียบง่าย
+       
+   -   ทั้งสองรันใน Docker และเชื่อมต่อกันด้วย `docker-compose`
+   
+   ## โครงสร้างโปรเจกต์ 	 	
+   project-root/ 	
+  ├── docker-compose.yml
+  ├── api1/
+  │   ├── Dockerfile
+  │   └── app1.py
+  └── api2/
+      ├── Dockerfile
+      └── app.py
+     
+   
+   ## ภาษาในการพัฒนา
+   
+    -  Python 3
+    -  Flask
+   
+   ## Docker  Desktop ใช้วิธีการสร้าง  Images เเละ  Container ด้วยวิธี ใช้ compose ที่จะสามารถติดตั้ง imageห เเละ containers หให้อัตโนมัติ 
+   
+       docker-compose up --build
+       
+   
+   **Images ได้เเก่**
+   
+    -  ai_thailand_hackathon_2025-api1   port  8888:8888
+       สำหรับ API1 จะต้องติดตั้งทั้ง Flask และ requests
+   
+       
+     
+    -  ai_thailand_hackathon_2025-api2   port  9999:9999
+       สำหรับ API2 ติดตั้งเพียง Flask ก็เพียงพอ
+   
+   **Containers  ได้เเก่**
+    - ai_thailand_hackathon_2025
+   
+   ## Docker-compose.yml
+   
+    - ไฟล์นี้ใช้กำหนด service ทั้งหมด 2 ตัว
+    - ระบุว่า API1 ต้อง "รอ" ให้ API2 พร้อมก่อนจึงจะเริ่มทำงาน (`depends_on`)
+    - Docker Compose จะสร้าง network ให้โดยอัตโนมัติ ทำให้แต่ละ container เรียกชื่อกันได้โดยใช้ชื่อ service คือ http://api2:9999/ 
+   ในการใช้เรียก api2  
+   
+   ## ตรวจสอบการเชื่อมต่อเเละเเสดงผล
+   
+    - เมื่อ api1 เรียกใช้งาน api2 ได้สำเร็จ จะเเสดงที่ http://localhost:8888/ คือ
+   
+          {"Api1":"Hello this is API1","Api2_response":"Hello from API2 successfully  connected"}
+   
+    - api2 จะเเสดงที่  http://localhost:9999/  คือ
     
--   `API2`: ตอบกลับข้อความเรียบง่าย
-    
--   ทั้งสองรันใน Docker และเชื่อมต่อกันด้วย `docker-compose`
-
-## โครงสร้างโปรเจกต์
-	
-	project-root/
-	├── docker-compose.yml
-	├── api1/
-	│   ├── Dockerfile
-	│   └── app1.py
-	└── api2/
-    ├── Dockerfile
-    └── app2.py
-  
-
-## ภาษาในการพัฒนา
-
- -  Python 3
- -  Flask
-
-## Docker  Desktop
-ใช้วิธีการสร้าง  Images เเละ  Container ด้วยวิธี ใช้ compose ที่จะสามารถติดตั้ง imageห เเละ containers หให้อัตโนมัติ 
-
-    docker-compose up --build
-    
-
-**Images ได้เเก่**
-
- -  ai_thailand_hackathon_2025-api1   port  8888:8888
-    สำหรับ API1 จะต้องติดตั้งทั้ง Flask และ requests
-
-    
-  
- -  ai_thailand_hackathon_2025-api2   port  9999:9999
-    สำหรับ API2 ติดตั้งเพียง Flask ก็เพียงพอ
-
-**Containers  ได้เเก่**
- - ai_thailand_hackathon_2025
-
-## Docker-compose.yml
-
- - ไฟล์นี้ใช้กำหนด service ทั้งหมด 2 ตัว
- - ระบุว่า API1 ต้อง "รอ" ให้ API2 พร้อมก่อนจึงจะเริ่มทำงาน (`depends_on`)
- - Docker Compose จะสร้าง network ให้โดยอัตโนมัติ ทำให้แต่ละ container เรียกชื่อกันได้โดยใช้ชื่อ service คือ http://api2:9999/  ในการใช้เรียก api2
- 
-
-## ตรวจสอบการเชื่อมต่อเเละเเสดงผล
-
- - เมื่อ api1 เรียกใช้งาน api2 ได้สำเร็จ จะเเสดงที่ http://localhost:8888/ คือ
-
-       {"Api1":"Hello this is API1","Api2_response":"Hello from API2 successfully  connected"}
-
- - api2 จะเเสดงที่  http://localhost:9999/  คือ
- 
-       "Hello from API2 successfully  connected"
-
-
+          "Hello from API2 successfully  connected"
