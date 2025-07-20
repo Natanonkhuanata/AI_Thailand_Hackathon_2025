@@ -2,7 +2,7 @@
 ![enter image description here](https://upload.wikimedia.org/wikipedia/th/b/b5/CRMS6_logo.png)
 
 ##  AI  Thailand Hackathon 2025
-ทีม ลูกพ่อขุนเม็งราย  รหัส  10022   
+ทีม ลูกพ่อขุนเม็งราย  
 
     ทีมของพวกเรามาจากโรงเรียนเทศบาล 6 นครเชียงราย
 
